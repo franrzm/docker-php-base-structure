@@ -1,1 +1,1 @@
-# Basic PHP + Postgres structure in Docker
+# Basic PHP + PostgreSQL in Docker
