@@ -7,6 +7,7 @@ help: # Show all the available commands and its descriptions
 .PHONY: build
 build: # Build the app
 	docker-compose build
+	make install
 
 .PHONY: up
 up: # Start the app
