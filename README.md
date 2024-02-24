@@ -1,6 +1,6 @@
 # Basic PHP + PostgreSQL in Docker
 
-Basic ready-to-use PHP v8 and PostgreSQL v16 structure, with PHPUnit, composer and Make commands.
+Basic ready-to-use PHP and PostgreSQL structure, with PHPUnit, composer and Make commands.
 
 ### Getting Started
 #### Prerequisites
