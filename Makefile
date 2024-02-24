@@ -6,16 +6,16 @@ help: # Show all the available commands and its descriptions
 
 .PHONY: build
 build: # Build the app
-	docker-compose build
+	docker compose build
 	make install
 
 .PHONY: up
 up: # Start the app
-	docker-compose up -d
+	docker compose up -d
 
 .PHONY: down
 down: # Stop the app
-	docker-compose down
+	docker compose down
 
 .PHONY: restart
 restart: # Restart the app
@@ -23,7 +23,7 @@ restart: # Restart the app
 
 .PHONY: test
 test: # Run all the app tests
-	docker-compose run --rm composer test
+	docker compose run --rm composer test
 
 .PHONY: bash
 bash: # Bash into the specified docker container using 'service=<container_name>'
@@ -31,11 +31,11 @@ bash: # Bash into the specified docker container using 'service=<container_name>
 
 .PHONY: install
 install: # Install all the composer dependencies
-	docker-compose run --rm composer install
+	docker compose run --rm composer install
 
 .PHONY: update
 update: # Update all the composer dependencies
-	docker-compose run --rm composer update
+	docker compose run --rm composer update
 
 .PHONY: pull
 pull: # Stops the app, pull the git changes for the current branch, install all composer dependencies and builds the app
