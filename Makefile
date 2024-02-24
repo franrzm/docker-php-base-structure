@@ -26,7 +26,7 @@ test: # Run all the app tests
 	docker-compose run --rm composer test
 
 .PHONY: bash
-bash: # Bash into the specified docker container
+bash: # Bash into the specified docker container using 'service=<container_name>'
 	docker exec -ti $(service) /bin/bash
 
 .PHONY: install
