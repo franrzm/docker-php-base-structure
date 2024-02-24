@@ -1,0 +1,54 @@
+version: '3.9'
+
+services:
+  php:
+    container_name: php
+    build:
+      context: ./etc/php
+    expose:
+      - "9000"
+    volumes:
+      - ./app:/app
+    entrypoint: [ "php" ]
+    depends_on:
+      - db
+    tty: true
+    working_dir: /app
+    networks:
+      - network
+  composer:
+    container_name: composer
+    build:
+      context: ./etc/php
+    volumes:
+      - ./app:/app
+    entrypoint: [ "composer" ]
+    depends_on:
+      - php
+    tty: true
+    working_dir: /app
+    networks:
+      - network
+  db:
+    container_name: db
+    build:
+      context: ./etc/db
+    volumes:
+      - dbdata:/var/lib/postgresql
+    expose:
+      - "5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: dbname
+    tty: true
+    working_dir: /app
+    networks:
+      - network
+
+networks:
+  network:
+
+volumes:
+  dbdata:
+    driver: local
