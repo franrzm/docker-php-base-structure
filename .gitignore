@@ -1,4 +1,10 @@
-.idea
-.env
+# Dependencies
 app/vendor
 app/.phpunit.result.cache
+
+# IDE
+.idea
+
+# Environment
+.env
+docker-compose.override.yml
