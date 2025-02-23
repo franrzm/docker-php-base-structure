@@ -19,15 +19,22 @@ down: # Stop the app
 
 .PHONY: restart
 restart: # Restart the app
-	make down && make build && make up
+	make down
+	make up
+
+.PHONY: rebuild
+rebuild: # Rebuild the app
+	make down
+	make build
+	make up
 
 .PHONY: test
 test: # Run all the app tests
 	docker compose run --rm composer test
 
 .PHONY: bash
-bash: # Bash into the specified docker container using 'service=<container_name>'
-	docker exec -ti $(service) /bin/bash
+bash: # Bash into the specified docker container using 'c=<container_name>'
+	docker exec -ti $(c) /bin/bash
 
 .PHONY: install
 install: # Install all the composer dependencies
