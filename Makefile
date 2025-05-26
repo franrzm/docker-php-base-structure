@@ -28,9 +28,13 @@ rebuild: # Rebuild the app
 	make build
 	make up
 
+.PHONY: status
+status: # Show status of the app
+	@docker compose ps --format "table {{.Name}}\t{{.ID}}\t{{.Status}}\t{{.RunningFor}}"
+
 .PHONY: test
 test: # Run all the app tests
-	docker compose run --rm composer test
+	docker compose run --rm app composer test
 
 .PHONY: bash
 bash: # Bash into the specified docker container using 'c=<container_name>'
@@ -38,11 +42,11 @@ bash: # Bash into the specified docker container using 'c=<container_name>'
 
 .PHONY: install
 install: # Install all the composer dependencies
-	docker compose run --rm composer install
+	docker compose run --rm app composer install
 
 .PHONY: update
 update: # Update all the composer dependencies
-	docker compose run --rm composer update
+	docker compose run --rm app composer update
 
 .PHONY: pull
 pull: # Stops the app, pull the git changes for the current branch, install all composer dependencies and builds the app
