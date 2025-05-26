@@ -7,4 +7,4 @@ app/.phpunit.result.cache
 
 # Environment
 .env
-docker-compose.override.yml
+compose.override.yml
