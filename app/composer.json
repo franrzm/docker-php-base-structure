@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": "^8.2",
+    "php": "^8.4",
     "ramsey/uuid": "^4.7",
     "ext-pgsql": "*",
     "vlucas/phpdotenv": "*"
